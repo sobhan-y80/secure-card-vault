@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-color: #333333;
+    --light-color: #ffffff;
+    --background-color: var(--dark-color);
+    --text-color: var(--light-color);
+}
+
+body {
+    width: 25rem;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: var(--light-color);
+        --text-color: var(--dark-color);
+    }
+}

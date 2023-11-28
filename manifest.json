@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Secure Card Vault",
+    "description": "The 'Secure Card Vault' extension for Chrome is a tool that allows users to securely store their bank card information within the browser. This extension provides a convenient way to save and autofill card details when making online purchases, eliminating the need to manually enter the information each time. It prioritizes security by encrypting and protecting the stored data, ensuring that sensitive card details are kept safe. With the 'Secure Card Vault' extension, users can streamline their online shopping experience while maintaining the highest level of data protection.",
+    "version": "1.0",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "16": "./images/card-icon.png",
+        "32": "./images/card-icon.png",
+        "48": "./images/card-icon.png",
+        "128": "./images/card-icon.png"
+    }
+}
