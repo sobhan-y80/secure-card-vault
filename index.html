@@ -8,6 +8,30 @@
         <script src="js/scripts.js" defer></script>
     </head>
     <!-- %% START BODY -->
-    <body></body>
+    <body>
+        <header class="padding_side">
+            <p>Secure Card Vault</p>
+            <img src="/images/card-icon.png" alt="logo" />
+        </header>
+        <div class="form_wrapper padding_side">
+            <h3>Add New Secure Account Information</h3>
+            <form class="form">
+                <input type="text" class="form__card_bank_name" placeholder="Owner Card Name" />
+                <input type="text" class="form__card_bank_name" placeholder="Bank Name" />
+                <div class="form__card_number_wrapper">
+                    <input class="form__card_number_field" type="text" maxlength="4" />
+                    <input class="form__card_number_field" type="text" maxlength="4" />
+                    <input class="form__card_number_field" type="text" maxlength="4" />
+                    <input class="form__card_number_field" type="text" maxlength="4" />
+                </div>
+                <div class="form__card_date_wrapper">
+                    <input type="text" class="form__date_field" placeholder="Year" />
+                    <input type="text" class="form__date_field" placeholder="Month" />
+                </div>
+                <input type="text" placeholder="CVV2" class="form__cvv2_field" />
+                <button class="from__save_btn">save</button>
+            </form>
+        </div>
+    </body>
     <!-- %% END BODY -->
 </html>

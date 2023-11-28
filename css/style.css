@@ -2,19 +2,50 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+button {
+    font-size: 1rem;
+    width: 100%;
+    color: var(--text-color);
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border: 0.15rem solid var(--gray-dark-color);
+    border-radius: 0.3rem;
+    background-color: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 :root {
     --dark-color: #333333;
+    --dark-light-color: #5555;
+    --gray-dark-color: #666;
     --light-color: #ffffff;
     --background-color: var(--dark-color);
     --text-color: var(--light-color);
+}
+
+.padding_side {
+    padding: 0 1rem;
 }
 
 body {
     width: 25rem;
     color: var(--text-color);
     background-color: var(--background-color);
+    padding-bottom: 1rem;
 }
 
 @media (prefers-color-scheme: light) {
@@ -22,4 +53,57 @@ body {
         --background-color: var(--light-color);
         --text-color: var(--dark-color);
     }
+}
+
+header {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-light-color);
+}
+
+header img {
+    width: 2rem;
+}
+
+.form_wrapper {
+    margin-top: 2rem;
+}
+
+.form {
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    gap: 0.6rem;
+}
+
+.form__card_number_wrapper,
+.form__card_date_wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-evenly;
+    gap: 2%;
+}
+
+.form__card_number_field {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.form__cvv2_field {
+    width: 23%;
+}
+
+.from__save_btn {
+    padding: 0.8rem;
+    font-size: 1rem;
+}
+
+.from__save_btn:hover {
+    color: var(--background-color);
+    background-color: var(--text-color);
 }
