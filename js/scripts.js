@@ -1,9 +1,22 @@
 //$$ Variables
+const bankNameInputElm = document.querySelector(".form__card_bank_name");
+const ownerCardInputElm = document.querySelector(".form__card_bank_name");
 const cardNumberInputsElm = document.querySelectorAll(".form__card_number_field");
+const yearInputElm = document.querySelector("input.form__year_field");
+const monthInputElm = document.querySelector("input.form__month_field");
+
+const ins = document.querySelector("input");
 
 //$$ Methods
 
 const isClassList = (mainClassList, className) => mainClassList?.contains(className);
+const saveLocalStorage = (key, value) => localStorage.setItem(key, value);
+const getLocalStorage = (key) => localStorage.getItem(key);
+
+const numberInputHandler = (element) =>
+    element.addEventListener("keypress", (e) =>
+        e.keyCode >= 48 && e.keyCode <= 57 ? (element.value = e.target.value) : e.preventDefault()
+    );
 
 //$$ Evnet Handler
 cardNumberInputsElm.forEach((inputFiled) => {
@@ -20,3 +33,9 @@ cardNumberInputsElm.forEach((inputFiled) => {
         }
     });
 });
+numberInputHandler(yearInputElm);
+numberInputHandler(monthInputElm);
+
+const saveCardAction = () => {
+    // const year
+};
