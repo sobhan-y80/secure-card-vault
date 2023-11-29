@@ -43,6 +43,7 @@ const saveCardAction = () => {
     saveLocalStorage("cards", mainCards);
     clearForm();
 };
+
 //$$ Evnet Handler
 cardNumberInputsElm.forEach((inputFiled) => {
     inputFiled.addEventListener("focus", () => inputFiled.select());

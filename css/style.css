@@ -1,4 +1,9 @@
+@font-face {
+    font-family: IranSansWeb;
+    src: url("../public/font/IRANSansWeb.ttf");
+}
 * {
+    font-family: IranSansWeb;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,14 +35,28 @@ input::-webkit-inner-spin-button {
 :root {
     --dark-color: #333333;
     --dark-light-color: #5555;
+    --light-color: #b7b9ba;
+    --dark-blue: #243d50;
+    --light-blue: #435362;
     --gray-dark-color: #666;
-    --light-color: #ffffff;
+    --white-color: #ffffff;
+
     --background-color: var(--dark-color);
-    --text-color: var(--light-color);
+    --text-color: var(--white-color);
+
+    --card-text-color: var(--light-color);
+    --card-background-color: var(--dark-blue);
+    --card-lighter-background-color: var(--light-blue);
+    --top-circle: -140%;
+    --left-circle: 35%;
 }
 
 .padding_side {
     padding: 0 1rem;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 body {
@@ -49,8 +68,14 @@ body {
 
 @media (prefers-color-scheme: light) {
     :root {
-        --background-color: var(--light-color);
+        --background-color: var(--white-color);
         --text-color: var(--dark-color);
+
+        --card-text-color: var(--light-color);
+        --card-background-color: #f7f7f7;
+        --card-lighter-background-color: #f0e2e2;
+        --top-circle: 20%;
+        --left-circle: 55%;
     }
 }
 
@@ -68,6 +93,7 @@ header img {
 }
 
 .form_wrapper {
+    display: none;
     margin-top: 2rem;
 }
 
@@ -109,4 +135,95 @@ header img {
 .from__save_btn:hover {
     color: var(--background-color);
     background-color: var(--text-color);
+}
+
+.card__wrapper {
+    padding: 1rem 0.5rem 0 0.5rem;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.card {
+    width: 100%;
+    height: 12rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    background: linear-gradient(
+        -232deg,
+        var(--card-background-color),
+        var(--card-lighter-background-color) 50% 70%,
+        var(--card-background-color)
+    );
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+.circle_card {
+    width: 100%;
+    height: 200%;
+    clip-path: circle(49% at 50% 50%);
+    background: linear-gradient(
+            45deg,
+            var(--card-background-color) 25%,
+            transparent 25%,
+            transparent 75%,
+            var(--card-background-color) 75%,
+            var(--card-background-color)
+        ),
+        linear-gradient(
+            45deg,
+            var(--card-background-color) 25%,
+            transparent 25%,
+            transparent 75%,
+            var(--card-background-color) 75%,
+            var(--card-background-color)
+        );
+    background-size: 3px 3px;
+    position: absolute;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+}
+.card::after {
+    content: "";
+    width: 100%;
+    height: 200%;
+    border: 0.15rem solid var(--card-text-color);
+    border-radius: 50%;
+    position: absolute;
+    top: var(--top-circle);
+    left: var(--left-circle);
+}
+.card *:not(.circle_card) {
+    position: relative;
+    z-index: 1;
+}
+
+.card__chip_wrapper {
+    width: 100%;
+    height: 3rem;
+}
+
+.card__chip_wrapper img {
+    height: 100%;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+#card__card_number_wrapper {
+    font-size: 1.4rem;
+}
+
+#card__date,
+#card__owner_name {
+    font-size: 0.8rem;
+}
+
+#card__owner_name {
+    margin-top: 0.4rem;
 }

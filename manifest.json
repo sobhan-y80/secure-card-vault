@@ -7,9 +7,9 @@
         "default_popup": "index.html"
     },
     "icons": {
-        "16": "./images/card-icon.png",
-        "32": "./images/card-icon.png",
-        "48": "./images/card-icon.png",
-        "128": "./images/card-icon.png"
+        "16": "./public/images/card-icon.png",
+        "32": "./public/images/card-icon.png",
+        "48": "./public/images/card-icon.png",
+        "128": "./public/images/card-icon.png"
     }
 }
