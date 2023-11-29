@@ -12,6 +12,9 @@
 
 button {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 input,
@@ -59,6 +62,10 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+.hidden {
+    display: none !important;
+}
+
 body {
     width: 25rem;
     color: var(--text-color);
@@ -93,7 +100,6 @@ header img {
 }
 
 .form_wrapper {
-    display: none;
     margin-top: 2rem;
 }
 
@@ -138,15 +144,15 @@ header img {
 }
 
 .card__wrapper {
-    padding: 1rem 0.5rem 0 0.5rem;
+    margin-top: 4rem;
     display: flex;
     flex-flow: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .card {
     width: 100%;
-    height: 12rem;
+    height: 14rem;
     padding: 0.9rem 1rem;
     border-radius: 1rem;
     background: linear-gradient(
@@ -202,6 +208,15 @@ header img {
 .card *:not(.circle_card) {
     position: relative;
     z-index: 1;
+}
+
+.card__remove_btn {
+    width: fit-content;
+    border: none;
+    position: absolute !important;
+    z-index: 10 !important;
+    top: 0;
+    right: 0;
 }
 
 .card__chip_wrapper {
