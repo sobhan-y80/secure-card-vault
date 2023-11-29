@@ -16,19 +16,20 @@
         <div class="form_wrapper padding_side">
             <h3>Add New Secure Account Information</h3>
             <form class="form">
-                <input type="text" class="form__card_bank_name" placeholder="Owner Card Name" />
-                <input type="text" class="form__card_bank_name" placeholder="Bank Name" />
+                <input type="text" class="form__card_owner_name" placeholder="Owner Card Name" />
+                <input required type="text" class="form__card_bank_name" placeholder="Bank Name" />
                 <div class="form__card_number_wrapper">
-                    <input class="form__card_number_field" type="text" maxlength="4" />
-                    <input class="form__card_number_field" type="text" maxlength="4" />
-                    <input class="form__card_number_field" type="text" maxlength="4" />
-                    <input class="form__card_number_field" type="text" maxlength="4" />
+                    <h4 class="form__card_number_title">Card Number :</h4>
+                    <input class="form__card_number_field" type="text" required maxlength="4" />
+                    <input class="form__card_number_field" type="text" required maxlength="4" />
+                    <input class="form__card_number_field" type="text" required maxlength="4" />
+                    <input class="form__card_number_field" type="text" required maxlength="4" />
                 </div>
                 <div class="form__card_date_wrapper">
-                    <input type="text" class="form__year_field" placeholder="Year" maxlength="4" />
-                    <input type="text" class="form__month_field" placeholder="Month" maxlength="2" />
+                    <input required type="text" class="form__year_field" placeholder="Year" maxlength="4" />
+                    <input required type="text" class="form__month_field" placeholder="Month" maxlength="2" />
                 </div>
-                <input type="text" placeholder="CVV2" class="form__cvv2_field" />
+                <input type="text" required placeholder="CVV2" class="form__cvv2_field" />
                 <button class="from__save_btn">save</button>
             </form>
         </div>
