@@ -11,7 +11,6 @@ button {
 
 input,
 button {
-    font-size: 1rem;
     width: 100%;
     color: var(--text-color);
     border: none;
@@ -90,7 +89,6 @@ header img {
 }
 
 .form__card_number_field {
-    font-size: 1.4rem;
     text-align: center;
 }
 
