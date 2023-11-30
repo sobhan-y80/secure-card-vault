@@ -10,31 +10,6 @@
     transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-input,
-button {
-    width: 100%;
-    color: var(--text-color);
-    border: none;
-    outline: none;
-    padding: 0.5rem;
-    border: 0.15rem solid var(--gray-dark-color);
-    border-radius: 0.3rem;
-    background-color: transparent;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-}
-
 :root {
     --dark-color: #333333;
     --dark-light-color: #5555;
@@ -54,6 +29,55 @@ input::-webkit-inner-spin-button {
     --left-circle: 35%;
 }
 
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: var(--white-color);
+        --text-color: var(--dark-color);
+
+        --card-text-color: var(--light-color);
+        --card-background-color: #f7f7f7;
+        --card-lighter-background-color: #f0e2e2;
+        --top-circle: 20%;
+        --left-circle: 55%;
+    }
+}
+
+button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:not(.no_color) {
+    color: var(--background-color);
+    background-color: var(--text-color);
+}
+
+button:not(.no_color):hover {
+    color: var(--text-color) !important;
+    background-color: var(--background-color) !important;
+}
+
+input,
+button {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    border: 0.15rem solid var(--gray-dark-color);
+    border-radius: 0.3rem;
+    color: var(--text-color);
+    background-color: transparent;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 .padding_side {
     padding: 0 1rem;
 }
@@ -71,19 +95,6 @@ body {
     color: var(--text-color);
     background-color: var(--background-color);
     padding-bottom: 1rem;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --background-color: var(--white-color);
-        --text-color: var(--dark-color);
-
-        --card-text-color: var(--light-color);
-        --card-background-color: #f7f7f7;
-        --card-lighter-background-color: #f0e2e2;
-        --top-circle: 20%;
-        --left-circle: 55%;
-    }
 }
 
 header {
@@ -111,7 +122,6 @@ header img {
     gap: 0.6rem;
 }
 
-.form__card_number_wrapper,
 .form__card_date_wrapper {
     width: 100%;
     display: grid;
@@ -119,6 +129,13 @@ header img {
     justify-content: space-evenly;
     gap: 2%;
     row-gap: 0.5rem;
+}
+
+.form__card_number_wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .form__card_number_title {
@@ -138,16 +155,23 @@ header img {
     font-size: 1rem;
 }
 
-.from__save_btn:hover {
-    color: var(--background-color);
-    background-color: var(--text-color);
-}
-
 .card__wrapper {
     margin-top: 4rem;
     display: flex;
     flex-flow: column;
     gap: 1rem;
+}
+
+.card_list_title {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_list_title button {
+    width: fit-content;
 }
 
 .card {
@@ -208,15 +232,21 @@ header img {
 .card *:not(.circle_card) {
     position: relative;
     z-index: 1;
+    width: fit-content;
 }
 
 .card__remove_btn {
+    opacity: 0;
     width: fit-content;
     border: none;
     position: absolute !important;
     z-index: 10 !important;
     top: 0;
     right: 0;
+}
+
+.card:hover .card__remove_btn {
+    opacity: 1;
 }
 
 .card__chip_wrapper {
